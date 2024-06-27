@@ -5,17 +5,30 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class LinkedList<T>  implements List<T> {
+public class LinkedList<T> implements List<T> {
   private Node<T> node;
 
-
   public LinkedList() {
-    this.node = new Node<T>();
   }
 
   @Override
   public int size() {
-    return 0;
+    int count = 0;
+
+    if(node != null) {
+      // Check if the head of the list is not null and add to the iterator variable
+      count++;
+      // The node variable is being replaced by the next in the node available.
+      node = node.next;
+
+      // If the next node keeps on returning an object it will return keep on repeating the cycle until the next will turn null
+      while (node != null) {
+        node = node.next;
+        count++;
+      }
+    }
+    // Eventually all iterations will return. Even there was no items in the linkedlist at all.
+    return count;
   }
 
   @Override
@@ -45,7 +58,15 @@ public class LinkedList<T>  implements List<T> {
 
   @Override
   public boolean add(T t) {
-    return node.add(t);
+    if (node == null) {
+      node = new Node<>(t, null);
+      //  This is because its being added by the inferace, this methods has return type of boolean
+      return true;
+    }
+    else {
+      // This also returns true
+      return node.add(t);
+    }
   }
 
   @Override
@@ -85,9 +106,10 @@ public class LinkedList<T>  implements List<T> {
 
   @Override
   public T get(int index) {
-    if(index == 0) {
-
+    if (node == null) {
+      return null;
     }
+    return node.getValue(index);
   }
 
   @Override
