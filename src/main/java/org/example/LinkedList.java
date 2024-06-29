@@ -14,16 +14,14 @@ public class LinkedList<T> implements List<T> {
   @Override
   public int size() {
     int count = 0;
-
-    if(node != null) {
+    if (node != null) {
       // Check if the head of the list is not null and add to the iterator variable
       count++;
-      // The node variable is being replaced by the next in the node available.
-      node = node.next;
-
+      // The next object of the first node will be stored in a Node referene object variable
+      Node<T> next = node.next;
       // If the next node keeps on returning an object it will return keep on repeating the cycle until the next will turn null
-      while (node != null) {
-        node = node.next;
+      while (next != null) {
+        next = next.next;
         count++;
       }
     }
@@ -71,7 +69,60 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean remove(Object o) {
-    return false;
+    System.out.println("test To remove");
+
+    Node<T> nodeLookUp = this.node;
+    Node<T> previousNode = null;
+
+    while (true) {
+      // This will return false if in the first place no node has been found.
+      // Second of all it will return false if there is no other entries has beend found.
+      if (nodeLookUp == null) {
+      System.out.println("test1");
+        return false;
+      }
+      if (nodeLookUp.value.equals(o)) {
+        System.out.println(previousNode.value);
+        if (previousNode == null) {
+          System.out.println(node.value);
+          System.out.println(nodeLookUp.value);
+          node = node.next;
+          System.out.println(node.value);
+        }
+        previousNode.next = nodeLookUp.next;
+        return true;
+      }
+
+      previousNode = nodeLookUp;
+      System.out.println("previous node "  + previousNode.value);
+      nodeLookUp = nodeLookUp.next;
+      System.out.println("nodeToLookup "  + nodeLookUp.value);
+    }
+//    We loopen door de nodes heen, waarbij we de huidige en de vorige Node bijhouden.
+//    Node<T> toRemove = node;
+//    Node<T> previous = null;
+//
+//    //We maken hier een while(true) loop, wat gevaarlijk is, dus daar moeten we heel bewust mee omgaan.
+//    while(true){
+//      //Dit eerste if-statement zorgt er voor dat we niet oneindig blijven loopen.
+//      if(toRemove == null){
+//        return false;
+//      }
+//      //Als het object uit de parameter is gevonden als value van de Node, dan willen we die Node verwijderen
+//      if(toRemove.value.equals(o)){
+//        if(previous == null){
+//          node = node.next;
+//          return true;
+//        }
+//        previous.next = toRemove.next; // zorg dat de next van de vorige wijst naar de next van de huidige. Daarmee haal je effectief
+//        de huidige Node tussen de lijst uit en is het verwijderd. (het maakt niet uit of de volgende node null is)
+//        return true;
+//      }
+//      //Als het object uit de parameter niet gevonden is, dan kijken we of het in de volgende Node wel gevonden wordt. (tot
+//      previous = toRemove;
+//      toRemove = toRemove.next;
+//    }
+
   }
 
   @Override
@@ -101,7 +152,7 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public void clear() {
-    if(node != null ) {
+    if (node != null) {
       node = null;
     }
   }

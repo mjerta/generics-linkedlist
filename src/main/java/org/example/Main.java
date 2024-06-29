@@ -14,10 +14,13 @@ public class Main {
     linkedList.add("B");
     linkedList.add("C");
     linkedList.add("D");
+    System.out.println("test");;
+    System.out.println(linkedList.size());
+    System.out.println(linkedList.size());
+//    linkedList.remove("D");
 
-    System.out.println(linkedList.size());
-    linkedList.clear();
-    System.out.println(linkedList.size());
+//    linkedList.clear();
+//    System.out.println(linkedList.size());
 //    var isEmpty = linkedList.isEmpty();
 //    System.out.println(isEmpty);
 //    var result = linkedList.get(3);
