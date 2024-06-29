@@ -33,7 +33,7 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean isEmpty() {
-    return false;
+    return node == null;
   }
 
   @Override

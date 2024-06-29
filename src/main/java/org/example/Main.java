@@ -10,10 +10,12 @@ public class Main {
     var secondAdd = linkedList.add("B");
     linkedList.add("C");
     linkedList.add("D");
-    var result = linkedList.get(3);
-    System.out.println(result);
-
-    var size = linkedList.size();
-    System.out.println(size);
+    var isEmpty = linkedList.isEmpty();
+    System.out.println(isEmpty);
+//    var result = linkedList.get(3);
+//    System.out.println(result);
+//
+//    var size = linkedList.size();
+//    System.out.println(size);
   }
 }
