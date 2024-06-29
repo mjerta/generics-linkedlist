@@ -101,7 +101,9 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public void clear() {
-
+    if(node != null ) {
+      node = null;
+    }
   }
 
   @Override
