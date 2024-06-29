@@ -71,58 +71,30 @@ public class LinkedList<T> implements List<T> {
   public boolean remove(Object o) {
     System.out.println("test To remove");
 
-    Node<T> nodeLookUp = this.node;
+    Node<T> nodeLookUp = node; // node is the original node and nodeLookUp is just a reference to this.
     Node<T> previousNode = null;
 
     while (true) {
       // This will return false if in the first place no node has been found.
       // Second of all it will return false if there is no other entries has beend found.
       if (nodeLookUp == null) {
-      System.out.println("test1");
         return false;
       }
       if (nodeLookUp.value.equals(o)) {
-        System.out.println(previousNode.value);
         if (previousNode == null) {
-          System.out.println(node.value);
-          System.out.println(nodeLookUp.value);
           node = node.next;
-          System.out.println(node.value);
+          return true;
         }
+        // In this case the next entry of the previouos( the value that we are looking for) will be replaced byt the current next one. So this item is deleted.
+        // The reference of the copy and the original node both share the same reference. So the value of the reference will change.
+        // This could not have happen if you directly change a reassigned a variable to a different object. This reference is not the same.
         previousNode.next = nodeLookUp.next;
         return true;
       }
 
       previousNode = nodeLookUp;
-      System.out.println("previous node "  + previousNode.value);
       nodeLookUp = nodeLookUp.next;
-      System.out.println("nodeToLookup "  + nodeLookUp.value);
     }
-//    We loopen door de nodes heen, waarbij we de huidige en de vorige Node bijhouden.
-//    Node<T> toRemove = node;
-//    Node<T> previous = null;
-//
-//    //We maken hier een while(true) loop, wat gevaarlijk is, dus daar moeten we heel bewust mee omgaan.
-//    while(true){
-//      //Dit eerste if-statement zorgt er voor dat we niet oneindig blijven loopen.
-//      if(toRemove == null){
-//        return false;
-//      }
-//      //Als het object uit de parameter is gevonden als value van de Node, dan willen we die Node verwijderen
-//      if(toRemove.value.equals(o)){
-//        if(previous == null){
-//          node = node.next;
-//          return true;
-//        }
-//        previous.next = toRemove.next; // zorg dat de next van de vorige wijst naar de next van de huidige. Daarmee haal je effectief
-//        de huidige Node tussen de lijst uit en is het verwijderd. (het maakt niet uit of de volgende node null is)
-//        return true;
-//      }
-//      //Als het object uit de parameter niet gevonden is, dan kijken we of het in de volgende Node wel gevonden wordt. (tot
-//      previous = toRemove;
-//      toRemove = toRemove.next;
-//    }
-
   }
 
   @Override

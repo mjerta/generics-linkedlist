@@ -16,8 +16,9 @@ public class Main {
     linkedList.add("D");
     System.out.println("test");;
     System.out.println(linkedList.size());
+    linkedList.remove("B");
     System.out.println(linkedList.size());
-//    linkedList.remove("D");
+    System.out.println(linkedList.get(0));
 
 //    linkedList.clear();
 //    System.out.println(linkedList.size());
