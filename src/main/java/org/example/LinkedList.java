@@ -111,7 +111,17 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean addAll(int index, Collection<? extends T> c) {
-    return false;
+    // This will start the iterator at the right index.
+    int i = index;
+    //This will check if the entry at this index is valid entry.
+    if(node.getValue(index) == null) {
+      return false;
+    }
+    for(T t: c) {
+      add(i,t);
+      i++;
+    }
+    return true;
   }
 
   @Override
