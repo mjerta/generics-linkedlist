@@ -29,6 +29,12 @@ public class LinkedList<T> implements List<T> {
     return count;
   }
 
+  public void printOutAllItems() {
+    for (int i = 0; i < this.size(); i++) {
+      System.out.println(this.get(i));
+    }
+  }
+
   @Override
   public boolean isEmpty() {
     return node == null;
