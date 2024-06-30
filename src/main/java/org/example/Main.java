@@ -17,7 +17,8 @@ public class Main {
     linkedList.add("C");
     linkedList.add("D"); // 3
 
-    linkedList.addAll(1, Arrays.asList("1", "2", "3"));
+    var test = linkedList.addAll(5, Arrays.asList("1", "2", "3"));
+    System.out.println(test);
 
 //    var getitem =  linkedList.get(0);
 //    System.out.println(getitem);

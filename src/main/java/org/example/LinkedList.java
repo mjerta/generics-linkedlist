@@ -103,7 +103,7 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean addAll(Collection<? extends T> c) {
-    for(T t: c) {
+    for (T t : c) {
       add(t);
     }
     return true;
@@ -111,14 +111,27 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean addAll(int index, Collection<? extends T> c) {
+    boolean isIndexValid = true;
     // This will start the iterator at the right index.
     int i = index;
     //This will check if the entry at this index is valid entry.
-    if(node.getValue(index) == null) {
+//    if ((index >= 0 && node.getValue(index) == null) || node.getValue(index - 1 ) == null) {
+
+    if(index < 0) {
       return false;
     }
-    for(T t: c) {
-      add(i,t);
+    else if (index == 0 && node.getValue(index) == null) {
+      isIndexValid = false;
+    }
+    else if (index > 0 && node.getValue(index - 1) == null) {
+      isIndexValid = false;
+    }
+    if(!isIndexValid) {
+      return false;
+    }
+//    }
+    for (T t : c) {
+      add(i, t);
       i++;
     }
     return true;
