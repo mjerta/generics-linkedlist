@@ -149,12 +149,10 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public T set(int index, T element) {
-    int i = 0;
     Node<T> currentNode = node;
 
-    while (index > i) {
+    for (int i = 0; i < index; i++) {
       currentNode = currentNode.next;
-      i++;
     }
     return currentNode.set(element);
   }

@@ -17,7 +17,9 @@ public class Main {
     linkedList.add("C");
     linkedList.add("D"); // 3
 
-    linkedList.add(0,"Z");
+    linkedList.set(0, "T");
+
+//    linkedList.add(0,"Z");
 
 //    linkedList.set(1,"M");
 //    System.out.println("test");;
