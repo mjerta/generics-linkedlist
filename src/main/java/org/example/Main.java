@@ -12,13 +12,15 @@ public class Main {
     listOne.add("test");
     LinkedList<String> linkedList = new LinkedList<>();
 
-    linkedList.add("A");
+    linkedList.add("A"); //0
     linkedList.add("B");
     linkedList.add("C");
-    linkedList.add("D");
+    linkedList.add("D"); // 3
 
-    linkedList.set(1,"M");
-    System.out.println("test");;
+    linkedList.add(0,"Z");
+
+//    linkedList.set(1,"M");
+//    System.out.println("test");;
 //    System.out.println(linkedList.size());
 //    linkedList.removeAll(Arrays.asList("D", "D", "D", "D", "D"));
 //    System.out.println(linkedList.size());

@@ -85,7 +85,8 @@ public class LinkedList<T> implements List<T> {
           node = node.next;
           return true;
         }
-        // In this case the next entry of the previouos( the value that we are looking for) will be replaced byt the current next one. So this item is deleted.
+        // In this case the next entry of the previouos( the value that we are looking for) will be replaced byt the current next one. So
+        // this item is deleted.
         // The reference of the copy and the original node both share the same reference. So the value of the reference will change.
         // This could not have happen if you directly change a reassigned a variable to a different object. This reference is not the same.
         previousNode.next = nodeLookUp.next;
@@ -104,6 +105,7 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean addAll(Collection<? extends T> c) {
+
     return false;
   }
 
@@ -116,9 +118,9 @@ public class LinkedList<T> implements List<T> {
   public boolean removeAll(Collection<?> c) {
     boolean ableToRemove = true;
 
-    for(Object o : c) {
+    for (Object o : c) {
       // Added a condition to make sure to check every single removal is successful.
-      if(!remove(o)) {
+      if (!remove(o)) {
         ableToRemove = false;
       }
     }
@@ -150,7 +152,7 @@ public class LinkedList<T> implements List<T> {
     int i = 0;
     Node<T> currentNode = node;
 
-    while(index > i) {
+    while (index > i) {
       currentNode = currentNode.next;
       i++;
     }
@@ -159,7 +161,29 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public void add(int index, T element) {
+    if (index < 0) {
+      System.out.println("Index out of bounds");
+      return;
+    }
+    Node<T> currentNode = node;
+    Node<T> previousNode = null;
 
+    for (int i = 0; i < index; i++) {
+      if (currentNode == null) {
+        System.out.println("Index out of bounds");
+        return;
+      }
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    Node<T> newNode = new Node<>(element, currentNode);
+
+    if (previousNode != null) {
+      previousNode.next = newNode;
+    }
+    else {
+      node = newNode;
+    }
   }
 
   @Override
