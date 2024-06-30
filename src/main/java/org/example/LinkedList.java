@@ -114,7 +114,15 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean removeAll(Collection<?> c) {
-    return false;
+    boolean ableToRemove = true;
+
+    for(Object o : c) {
+      // Added a condition to make sure to check every single removal is successful.
+      if(!remove(o)) {
+        ableToRemove = false;
+      }
+    }
+    return ableToRemove;
   }
 
   @Override
@@ -139,7 +147,14 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public T set(int index, T element) {
-    return null;
+    int i = 0;
+    Node<T> currentNode = node;
+
+    while(index > i) {
+      currentNode = currentNode.next;
+      i++;
+    }
+    return currentNode.set(element);
   }
 
   @Override

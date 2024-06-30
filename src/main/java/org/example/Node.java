@@ -33,4 +33,9 @@ public class Node<T> {
       return next.getValue(index - 1);
     }
   }
+
+  public T set(T element) {
+    this.value = element;
+    return element;
+  }
 }
