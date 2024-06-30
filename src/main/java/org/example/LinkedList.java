@@ -64,7 +64,7 @@ public class LinkedList<T> implements List<T> {
   public boolean add(T t) {
     if (node == null) {
       node = new Node<>(t, null);
-      //  This is because its being added by the inferace, this methods has return type of boolean
+      //  This is because its being added by the interface, this methods has return type of boolean
       return true;
     }
     else {
@@ -89,7 +89,7 @@ public class LinkedList<T> implements List<T> {
           node = node.next;
           return true;
         }
-        // In this case the next entry of the previouos( the value that we are looking for) will be replaced byt the current next one. So
+        // In this case the next entry of the previous( the value that we are looking for) will be replaced byt the current next one. So
         // this item is deleted.
         // The reference of the copy and the original node both share the same reference. So the value of the reference will change.
         // This could not have happen if you directly change a reassigned a variable to a different object. This reference is not the same.
@@ -120,10 +120,10 @@ public class LinkedList<T> implements List<T> {
     boolean isIndexValid = true;
     // This will start the iterator at the right index.
     int i = index;
-    //This will check if the entry at this index is valid entry.
-//    if ((index >= 0 && node.getValue(index) == null) || node.getValue(index - 1 ) == null) {
+    // This will check if the entry at this index is valid entry.
+    // If ((index >= 0 && node.getValue(index) == null) || node.getValue(index - 1 ) == null) {
 
-    if(index < 0) {
+    if (index < 0) {
       return false;
     }
     else if (index == 0 && node.getValue(index) == null) {
@@ -132,10 +132,9 @@ public class LinkedList<T> implements List<T> {
     else if (index > 0 && node.getValue(index - 1) == null) {
       isIndexValid = false;
     }
-    if(!isIndexValid) {
+    if (!isIndexValid) {
       return false;
     }
-//    }
     for (T t : c) {
       add(i, t);
       i++;
