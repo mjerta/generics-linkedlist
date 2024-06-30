@@ -17,7 +17,12 @@ public class Main {
     linkedList.add("C");
     linkedList.add("D"); // 3
 
-    linkedList.set(0, "T");
+    var getitem =  linkedList.get(0);
+    System.out.println(getitem);
+
+//    linkedList.addAll(Arrays.asList("H","4","K"));
+
+//    linkedList.set(0, "T");
 
 //    linkedList.add(0,"Z");
 
@@ -26,9 +31,9 @@ public class Main {
 //    System.out.println(linkedList.size());
 //    linkedList.removeAll(Arrays.asList("D", "D", "D", "D", "D"));
 //    System.out.println(linkedList.size());
-    for (int i = 0; i < linkedList.size(); i++) {
-      System.out.println(linkedList.get(i));
-    }
+//    for (int i = 0; i < linkedList.size(); i++) {
+//      System.out.println(linkedList.get(i));
+//    }
 
 //    linkedList.clear();
 //    System.out.println(linkedList.size());

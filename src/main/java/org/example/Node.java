@@ -29,9 +29,12 @@ public class Node<T> {
       // This is the head of the linkedlist
       return this.value;
     }
-    else {
-      return next.getValue(index - 1);
-    }
+      else if (next != null) {
+        return next.getValue(index - 1);
+      }
+      else {
+        return null;
+      }
   }
 
   public T set(T element) {

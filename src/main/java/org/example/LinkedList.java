@@ -69,8 +69,6 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean remove(Object o) {
-    System.out.println("test To remove");
-
     Node<T> nodeLookUp = node; // node is the original node and nodeLookUp is just a reference to this.
     Node<T> previousNode = null;
 
@@ -105,8 +103,10 @@ public class LinkedList<T> implements List<T> {
 
   @Override
   public boolean addAll(Collection<? extends T> c) {
-
-    return false;
+    for(T t: c) {
+      add(t);
+    }
+    return true;
   }
 
   @Override
